@@ -4,7 +4,12 @@
 		<div class="page_container">
 			<section class="page_content">
 				{{ partial "masthead_nav.html" . }}
-				{{ partial "recent_posts.html" . }}
+				<div>
+				  {{ range first 10 .Pages }}
+				    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+				    {{ .Summary }}
+				  {{ end }}
+				</div>
 			</section>
 		</div>
 	</article>
